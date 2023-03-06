@@ -22,7 +22,7 @@
 	</main>
 
 	<div
-		class={`h-5 w-5 rounded-full bg-black absolute`}
+		class="h-5 w-5 rounded-full bg-black absolute"
 		style={`transform: translate(${$coords.x}px, ${$coords.y}px);
 		`}
 	/>
