@@ -13,7 +13,7 @@
 
 <div
 	class="h-[100vh] flex flex-col"
-	on:mousemove={(e) => coords.set({ x: e.clientX, y: e.clientY })}
+	on:mousemove={(e) => coords.set({ x: e.clientX - 20, y: e.clientY - 20 })}
 >
 	<Header />
 	<main class="flex justify-center px-[250px] flex-col grow">
