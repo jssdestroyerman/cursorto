@@ -76,7 +76,7 @@
 		</h1>
 	</main>
 
-	<div class={`customCursor ${hoveringMain ? '' : 'bg-black'}`}>
+	<div class={`customCursor ${hoveringMain ? '' : 'bg-gray-100'}`}>
 		<video
 			src={videos[0]}
 			class={`customVideo ${index === 0 ? 'scale-100' : 'scale-0'} ${
@@ -118,9 +118,9 @@
 		-webkit-text-fill-color: black;
 	}
 	.customCursor {
-		@apply h-8 w-8 rounded-full fixed opacity-0 z-50 translate-x-[-50%] translate-y-[-50%] pointer-events-none;
+		@apply h-8 w-8 rounded-full fixed opacity-0 translate-x-[-50%] translate-y-[-50%] pointer-events-none;
 	}
 	.customVideo {
-		@apply h-full object-cover absolute rounded-full transition duration-500;
+		@apply h-full object-cover absolute rounded-full transition duration-700;
 	}
 </style>
