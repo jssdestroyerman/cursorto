@@ -43,6 +43,23 @@
 				});
 			});
 		});
+
+		const styleLi = document.querySelectorAll('.styleLi');
+		styleLi.forEach((li) => {
+			li.addEventListener('mouseenter', () => {
+				gsap.to('.customCursor', {
+					scale: 0,
+					duration: 0.5
+				});
+			});
+
+			li.addEventListener('mouseleave', () => {
+				gsap.to('.customCursor', {
+					scale: 1,
+					duration: 0.5
+				});
+			});
+		});
 	});
 </script>
 
@@ -84,7 +101,9 @@
 			}`}
 			autoplay
 			loop
-		/>
+		>
+			<track kind="captions" /></video
+		>
 		<video
 			src={videos[1]}
 			class={`customVideo ${index === 1 ? 'scale-100' : 'scale-0'} ${
@@ -92,7 +111,9 @@
 			}`}
 			autoplay
 			loop
-		/>
+		>
+			<track kind="captions" /></video
+		>
 		<video
 			src={videos[2]}
 			class={`customVideo ${index === 2 ? 'scale-100' : 'scale-0'} ${
@@ -100,7 +121,9 @@
 			}`}
 			autoplay
 			loop
-		/>
+		>
+			<track kind="captions" />
+		</video>
 	</div>
 </div>
 

@@ -3,9 +3,9 @@
 
 	<nav>
 		<ul class="flex w-[200px] justify-between items-center">
-			<li>showreel</li>
-			<li>menu</li>
-			<li>
+			<li class="styleLi">showreel</li>
+			<li class="styleLi">menu</li>
+			<li class="styleLi">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
