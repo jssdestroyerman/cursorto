@@ -79,18 +79,21 @@
 	<div class="customCursor">
 		<video
 			src={videos[0]}
-			class={`customVideo ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+			class={`customVideo ${index === 0 ? 'scale-100' : 'scale-0'}`}
 			autoplay
+			loop
 		/>
 		<video
 			src={videos[1]}
-			class={`customVideo ${index === 1 ? 'opacity-100' : 'opacity-0'}`}
+			class={`customVideo ${index === 1 ? 'scale-100' : 'scale-0'}`}
 			autoplay
+			loop
 		/>
 		<video
 			src={videos[2]}
-			class={`customVideo ${index === 2 ? 'opacity-100' : 'opacity-0'}`}
+			class={`customVideo ${index === 2 ? 'scale-100' : 'scale-0'}`}
 			autoplay
+			loop
 		/>
 	</div>
 </div>
@@ -112,6 +115,6 @@
 		@apply h-8 w-8 rounded-full fixed opacity-0 z-50 translate-x-[-50%] translate-y-[-50%] pointer-events-none mix-blend-exclusion;
 	}
 	.customVideo {
-		@apply h-full object-cover absolute rounded-full;
+		@apply h-full object-cover absolute rounded-full transition duration-500;
 	}
 </style>
