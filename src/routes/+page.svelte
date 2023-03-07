@@ -18,12 +18,14 @@
 
 		const styleMain = document.querySelector('.styleMain');
 		styleMain?.addEventListener('mouseenter', () => {
+			hoveringMain = true;
 			gsap.to('.styleCursor', {
 				scale: 8,
 				duration: 0.5
 			});
 		});
 		styleMain?.addEventListener('mouseleave', () => {
+			hoveringMain = false;
 			gsap.to('.styleCursor', {
 				scale: 1,
 				duration: 0.5
@@ -65,11 +67,7 @@
 
 <div class="h-[100vh] flex flex-col">
 	<Header />
-	<main
-		class="flex justify-center px-[250px] flex-col grow styleMain"
-		on:mouseenter={() => (hoveringMain = true)}
-		on:mouseleave={() => (hoveringMain = false)}
-	>
+	<main class="flex justify-center px-[250px] flex-col grow styleMain">
 		<p>We make it happen</p>
 		<h1>
 			<span
