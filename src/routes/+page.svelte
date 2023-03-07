@@ -76,22 +76,28 @@
 		</h1>
 	</main>
 
-	<div class="customCursor">
+	<div class={`customCursor ${hoveringMain ? '' : 'bg-black'}`}>
 		<video
 			src={videos[0]}
-			class={`customVideo ${index === 0 ? 'scale-100' : 'scale-0'}`}
+			class={`customVideo ${index === 0 ? 'scale-100' : 'scale-0'} ${
+				hoveringMain ? '' : 'delay-300 opacity-0'
+			}`}
 			autoplay
 			loop
 		/>
 		<video
 			src={videos[1]}
-			class={`customVideo ${index === 1 ? 'scale-100' : 'scale-0'}`}
+			class={`customVideo ${index === 1 ? 'scale-100' : 'scale-0'} ${
+				hoveringMain ? '' : 'delay-300 opacity-0'
+			}`}
 			autoplay
 			loop
 		/>
 		<video
 			src={videos[2]}
-			class={`customVideo ${index === 2 ? 'scale-100' : 'scale-0'}`}
+			class={`customVideo ${index === 2 ? 'scale-100' : 'scale-0'} ${
+				hoveringMain ? '' : 'delay-300 opacity-0'
+			}`}
 			autoplay
 			loop
 		/>
@@ -112,7 +118,7 @@
 		-webkit-text-fill-color: black;
 	}
 	.customCursor {
-		@apply h-8 w-8 rounded-full fixed opacity-0 z-50 translate-x-[-50%] translate-y-[-50%] pointer-events-none mix-blend-exclusion;
+		@apply h-8 w-8 rounded-full fixed opacity-0 z-50 translate-x-[-50%] translate-y-[-50%] pointer-events-none;
 	}
 	.customVideo {
 		@apply h-full object-cover absolute rounded-full transition duration-500;
