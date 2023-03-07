@@ -1,20 +1,20 @@
 <script>
 	import Header from '../lib/components/Header.svelte';
-	import { spring } from 'svelte/motion';
-
-	let coords = spring(
-		{ x: 50, y: 50 },
-		{
-			stiffness: 0.05,
-			damping: 0.5
-		}
-	);
+	import { gsap } from 'gsap';
 </script>
 
-<div
-	class="h-[100vh] flex flex-col"
-	on:mousemove={(e) => coords.set({ x: e.clientX - 20, y: e.clientY - 20 })}
->
+<svelte:window
+	on:mousemove={(e) => {
+		gsap.to('.customCursor', {
+			x: e.clientX - 50,
+			y: e.clientY - 50,
+			ease: 'power1.out',
+			duration: 0.5
+		});
+	}}
+/>
+
+<div class="h-[100vh] flex flex-col">
 	<Header />
 	<main class="flex justify-center px-[250px] flex-col grow">
 		<p>We make it happen</p>
@@ -23,11 +23,7 @@
 		</h1>
 	</main>
 
-	<div
-		class="h-5 w-5 rounded-full bg-black absolute"
-		style={`transform: translate(${$coords.x}px, ${$coords.y}px);
-		`}
-	/>
+	<div class="h-8 w-8 rounded-full bg-black absolute customCursor" />
 </div>
 
 <style>
