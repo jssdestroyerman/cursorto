@@ -11,8 +11,8 @@
 		window.addEventListener('mousemove', (e) => {
 			gsap.to('.customCursor', {
 				opacity: 1,
-				x: e.clientX - 50,
-				y: e.clientY - 50
+				x: e.clientX,
+				y: e.clientY
 			});
 		});
 
@@ -42,15 +42,6 @@
 					scale: 8
 				});
 			});
-		});
-		const customVideo = document.querySelectorAll('.customVideo');
-		customVideo.forEach((video) => {
-			if (index === 0) {
-				gsap.to('.customVideo', {
-					delay: 1,
-					scale: 1
-				});
-			}
 		});
 	});
 </script>
@@ -85,22 +76,22 @@
 		</h1>
 	</main>
 
-	<div class="h-8 w-8 rounded-full absolute customCursor opacity-0 -z-10">
+	<div class="customCursor">
 		<video
 			src={videos[0]}
-			class={`h-full object-cover customVideo absolute scale-0 rounded-full autoplay ${
+			class={`h-full object-cover customVideo absolute rounded-full autoplay ${
 				index === 0 ? 'opacity-100' : 'opacity-0'
 			}`}
 		/>
 		<video
 			src={videos[1]}
-			class={`h-full object-cover customVideo absolute scale-0 rounded-full autoplay ${
+			class={`h-full object-cover customVideo absolute rounded-full autoplay ${
 				index === 1 ? 'opacity-100' : 'opacity-0'
 			}`}
 		/>
 		<video
 			src={videos[2]}
-			class={`h-full object-cover customVideo absolute scale-0 rounded-full ${
+			class={`h-full object-cover customVideo absolute rounded-full ${
 				index === 2 ? 'opacity-100' : 'opacity-0'
 			}`}
 			autoplay
@@ -120,5 +111,8 @@
 	span:hover {
 		@apply cursor-pointer;
 		-webkit-text-fill-color: black;
+	}
+	.customCursor {
+		@apply h-8 w-8 rounded-full fixed opacity-0 z-50 translate-x-[-50%] translate-y-[-50%] pointer-events-none;
 	}
 </style>
