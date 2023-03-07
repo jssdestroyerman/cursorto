@@ -13,15 +13,28 @@
 			});
 		});
 
-		const cMain = document.querySelector('.cMain');
-		cMain?.addEventListener('mouseenter', () => {
+		const customMain = document.querySelector('.customMain');
+		customMain?.addEventListener('mouseenter', (e) => {
+			console.log(e);
 			gsap.to('.customCursor', {
-				scale: 5
+				scale: 8
 			});
 		});
-		cMain?.addEventListener('mouseleave', () => {
+		customMain?.addEventListener('mouseleave', () => {
 			gsap.to('.customCursor', {
 				scale: 1
+			});
+		});
+
+		const customSpan = document.querySelector('.customSpan');
+		customSpan?.addEventListener('mouseenter', () => {
+			gsap.to('.customCursor', {
+				scale: 12
+			});
+		});
+		customSpan?.addEventListener('mouseleave', () => {
+			gsap.to('.customCursor', {
+				scale: 8
 			});
 		});
 	});
@@ -29,10 +42,12 @@
 
 <div class="h-[100vh] flex flex-col">
 	<Header />
-	<main class="flex justify-center px-[250px] flex-col grow cMain">
+	<main class="flex justify-center px-[250px] flex-col grow customMain">
 		<p>We make it happen</p>
 		<h1>
-			<span>Websites</span> <span>Apps</span> <span>Branding</span>
+			<span class="customSpan">Websites</span>
+			<span class="customSpan">Apps</span>
+			<span class="customSpan">Branding</span>
 		</h1>
 	</main>
 
