@@ -18,7 +18,9 @@
 	<Header />
 	<main class="flex justify-center px-[250px] flex-col grow">
 		<p>We make it happen</p>
-		<h1><span>Websites</span> <span>Apps</span> <span>Branding</span></h1>
+		<h1>
+			<span>Websites</span> <span>Apps</span> <span>Branding</span>
+		</h1>
 	</main>
 
 	<div
@@ -30,7 +32,7 @@
 
 <style>
 	h1 {
-		@apply text-[110px] font-bold;
+		@apply text-[5.8vw] font-bold;
 		-webkit-text-fill-color: transparent;
 		-webkit-text-stroke: 1px;
 	}
