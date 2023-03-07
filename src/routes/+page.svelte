@@ -34,7 +34,7 @@
 		customSpan.forEach((span) => {
 			span?.addEventListener('mouseenter', () => {
 				gsap.to('.customCursor', {
-					scale: 12
+					scale: 15
 				});
 			});
 			span?.addEventListener('mouseleave', () => {
@@ -63,7 +63,7 @@
 		on:mouseleave={() => (hoveringMain = false)}
 	>
 		<p>We make it happen</p>
-		<h1 class="">
+		<h1>
 			<span
 				class="customSpan"
 				on:mouseenter={() => {
@@ -85,7 +85,7 @@
 		</h1>
 	</main>
 
-	<div class="h-8 w-8 rounded-full absolute customCursor -z-20 opacity-0">
+	<div class="h-8 w-8 rounded-full absolute customCursor opacity-0 -z-10">
 		<video
 			src={videos[0]}
 			class={`h-full object-cover customVideo absolute scale-0 rounded-full autoplay ${
