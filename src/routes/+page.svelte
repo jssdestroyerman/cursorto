@@ -8,14 +8,16 @@
 	const videos = ['websites.mp4', 'apps.mp4', 'branding.mp4'];
 
 	onMount(() => {
+		// handle mousemove
 		window.addEventListener('mousemove', (e) => {
 			gsap.to('.styleCursor', {
 				opacity: 1,
-				x: e.clientX,
-				y: e.clientY
+				x: e.clientX - 15,
+				y: e.clientY - 15
 			});
 		});
 
+		// handle main
 		const styleMain = document.querySelector('.styleMain');
 		styleMain?.addEventListener('mouseenter', () => {
 			hoveringMain = true;
@@ -32,6 +34,7 @@
 			});
 		});
 
+		// handle main > span
 		const customSpan = document.querySelectorAll('.customSpan');
 		customSpan.forEach((span) => {
 			span?.addEventListener('mouseenter', () => {
@@ -46,6 +49,7 @@
 			});
 		});
 
+		// handle main > span > li
 		const styleLi = document.querySelectorAll('.styleLi');
 		styleLi.forEach((li) => {
 			li.addEventListener('mouseenter', () => {
@@ -54,7 +58,6 @@
 					duration: 0.5
 				});
 			});
-
 			li.addEventListener('mouseleave', () => {
 				gsap.to('.styleCursor', {
 					scale: 1,
@@ -64,6 +67,19 @@
 		});
 	});
 </script>
+
+<!-- if the mouse hovering the main at loading -->
+<svelte:window
+	on:mousemove|once={(e) => {
+		if (e.clientY > 90) {
+			hoveringMain = true;
+		}
+		gsap.to('.styleCursor', {
+			scale: 8,
+			duration: 0.5
+		});
+	}}
+/>
 
 <div class="h-[100vh] flex flex-col">
 	<Header />
