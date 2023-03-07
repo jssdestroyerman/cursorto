@@ -1,34 +1,35 @@
 <script>
 	import Header from '../lib/components/Header.svelte';
 	import { gsap } from 'gsap';
-</script>
+	import { onMount } from 'svelte';
 
-<svelte:window
-	on:mousemove={(e) => {
-		gsap.to('.customCursor', {
-			x: e.clientX - 50,
-			y: e.clientY - 50,
-			ease: 'power1.out',
-			duration: 0.5
+	onMount(() => {
+		window.addEventListener('mousemove', (e) => {
+			gsap.to('.customCursor', {
+				x: e.clientX - 50,
+				y: e.clientY - 50,
+				ease: 'power1.out',
+				duration: 0.5
+			});
 		});
-	}}
-/>
 
-<div class="h-[100vh] flex flex-col">
-	<Header />
-	<main
-		class="flex justify-center px-[250px] flex-col grow"
-		on:mouseenter={() => {
+		const cMain = document.querySelector('.cMain');
+		cMain?.addEventListener('mouseenter', () => {
 			gsap.to('.customCursor', {
 				scale: 5
 			});
-		}}
-		on:mouseleave={() => {
+		});
+		cMain?.addEventListener('mouseleave', () => {
 			gsap.to('.customCursor', {
 				scale: 1
 			});
-		}}
-	>
+		});
+	});
+</script>
+
+<div class="h-[100vh] flex flex-col">
+	<Header />
+	<main class="flex justify-center px-[250px] flex-col grow cMain">
 		<p>We make it happen</p>
 		<h1>
 			<span>Websites</span> <span>Apps</span> <span>Branding</span>
