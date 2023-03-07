@@ -79,21 +79,17 @@
 	<div class="customCursor">
 		<video
 			src={videos[0]}
-			class={`h-full object-cover customVideo absolute rounded-full autoplay ${
-				index === 0 ? 'opacity-100' : 'opacity-0'
-			}`}
+			class={`customVideo ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+			autoplay
 		/>
 		<video
 			src={videos[1]}
-			class={`h-full object-cover customVideo absolute rounded-full autoplay ${
-				index === 1 ? 'opacity-100' : 'opacity-0'
-			}`}
+			class={`customVideo ${index === 1 ? 'opacity-100' : 'opacity-0'}`}
+			autoplay
 		/>
 		<video
 			src={videos[2]}
-			class={`h-full object-cover customVideo absolute rounded-full ${
-				index === 2 ? 'opacity-100' : 'opacity-0'
-			}`}
+			class={`customVideo ${index === 2 ? 'opacity-100' : 'opacity-0'}`}
 			autoplay
 		/>
 	</div>
@@ -113,6 +109,9 @@
 		-webkit-text-fill-color: black;
 	}
 	.customCursor {
-		@apply h-8 w-8 rounded-full fixed opacity-0 z-50 translate-x-[-50%] translate-y-[-50%] pointer-events-none;
+		@apply h-8 w-8 rounded-full fixed opacity-0 z-50 translate-x-[-50%] translate-y-[-50%] pointer-events-none mix-blend-exclusion;
+	}
+	.customVideo {
+		@apply h-full object-cover absolute rounded-full;
 	}
 </style>
