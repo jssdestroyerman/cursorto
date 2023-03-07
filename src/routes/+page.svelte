@@ -9,22 +9,22 @@
 
 	onMount(() => {
 		window.addEventListener('mousemove', (e) => {
-			gsap.to('.customCursor', {
+			gsap.to('.styleCursor', {
 				opacity: 1,
 				x: e.clientX,
 				y: e.clientY
 			});
 		});
 
-		const customMain = document.querySelector('.customMain');
-		customMain?.addEventListener('mouseenter', (e) => {
-			gsap.to('.customCursor', {
+		const styleMain = document.querySelector('.styleMain');
+		styleMain?.addEventListener('mouseenter', () => {
+			gsap.to('.styleCursor', {
 				scale: 8,
 				duration: 0.5
 			});
 		});
-		customMain?.addEventListener('mouseleave', () => {
-			gsap.to('.customCursor', {
+		styleMain?.addEventListener('mouseleave', () => {
+			gsap.to('.styleCursor', {
 				scale: 1,
 				duration: 0.5
 			});
@@ -33,12 +33,12 @@
 		const customSpan = document.querySelectorAll('.customSpan');
 		customSpan.forEach((span) => {
 			span?.addEventListener('mouseenter', () => {
-				gsap.to('.customCursor', {
+				gsap.to('.styleCursor', {
 					scale: 15
 				});
 			});
 			span?.addEventListener('mouseleave', () => {
-				gsap.to('.customCursor', {
+				gsap.to('.styleCursor', {
 					scale: 8
 				});
 			});
@@ -47,14 +47,14 @@
 		const styleLi = document.querySelectorAll('.styleLi');
 		styleLi.forEach((li) => {
 			li.addEventListener('mouseenter', () => {
-				gsap.to('.customCursor', {
+				gsap.to('.styleCursor', {
 					scale: 0,
 					duration: 0.5
 				});
 			});
 
 			li.addEventListener('mouseleave', () => {
-				gsap.to('.customCursor', {
+				gsap.to('.styleCursor', {
 					scale: 1,
 					duration: 0.5
 				});
@@ -66,7 +66,7 @@
 <div class="h-[100vh] flex flex-col">
 	<Header />
 	<main
-		class="flex justify-center px-[250px] flex-col grow customMain"
+		class="flex justify-center px-[250px] flex-col grow styleMain"
 		on:mouseenter={() => (hoveringMain = true)}
 		on:mouseleave={() => (hoveringMain = false)}
 	>
@@ -93,7 +93,7 @@
 		</h1>
 	</main>
 
-	<div class={`customCursor ${hoveringMain ? '' : 'bg-gray-100'}`}>
+	<div class={`styleCursor ${hoveringMain ? '' : 'bg-gray-100'}`}>
 		<video
 			src={videos[0]}
 			class={`customVideo ${index === 0 ? 'scale-100' : 'scale-0'} ${
@@ -140,8 +140,9 @@
 		@apply cursor-pointer;
 		-webkit-text-fill-color: black;
 	}
-	.customCursor {
+	.styleCursor {
 		@apply h-8 w-8 rounded-full fixed opacity-0 translate-x-[-50%] translate-y-[-50%] pointer-events-none;
+		transform: scale(1);
 	}
 	.customVideo {
 		@apply h-full object-cover absolute rounded-full transition duration-700;
