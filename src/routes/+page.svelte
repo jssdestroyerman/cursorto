@@ -108,36 +108,18 @@
 	</main>
 
 	<div class={`styleCursor ${hoveringMain ? '' : 'bg-gray-100'}`}>
-		<video
-			src={videos[0]}
-			class={`customVideo ${index === 0 ? 'scale-100' : 'scale-0'} ${
-				hoveringMain ? '' : 'delay-300 opacity-0'
-			}`}
-			autoplay
-			loop
-		>
-			<track kind="captions" /></video
-		>
-		<video
-			src={videos[1]}
-			class={`customVideo ${index === 1 ? 'scale-100' : 'scale-0'} ${
-				hoveringMain ? '' : 'delay-300 opacity-0'
-			}`}
-			autoplay
-			loop
-		>
-			<track kind="captions" /></video
-		>
-		<video
-			src={videos[2]}
-			class={`customVideo ${index === 2 ? 'scale-100' : 'scale-0'} ${
-				hoveringMain ? '' : 'delay-300 opacity-0'
-			}`}
-			autoplay
-			loop
-		>
-			<track kind="captions" />
-		</video>
+		{#each videos as video}
+			<video
+				src={video}
+				class={`customVideo ${index === videos.indexOf(video) ? 'scale-100' : 'scale-0'} ${
+					hoveringMain ? '' : 'delay-300 opacity-0'
+				}`}
+				autoplay
+				loop
+			>
+				<track kind="captions" /></video
+			>
+		{/each}
 	</div>
 </div>
 
