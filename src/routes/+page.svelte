@@ -65,6 +65,17 @@
 				});
 			});
 		});
+
+		gsap.from('header', {
+			y: -100,
+			duration: 1
+		});
+
+		gsap.from('.customSpan', {
+			yPercent: -100,
+			duration: 0.7,
+			stagger: 0.3
+		});
 	});
 </script>
 
@@ -85,25 +96,31 @@
 	<Header />
 	<main class="flex justify-center px-[250px] flex-col grow styleMain">
 		<p>We make it happen</p>
-		<h1>
+		<h1 class="overflow-hidden">
 			<span
 				class="customSpan"
 				on:mouseenter={() => {
 					index = 0;
-				}}>Websites</span
+				}}
 			>
+				Websites
+			</span>
 			<span
 				class="customSpan"
 				on:mouseenter={() => {
 					index = 1;
-				}}>Apps</span
+				}}
 			>
+				Apps
+			</span>
 			<span
 				class="customSpan"
 				on:mouseenter={() => {
 					index = 2;
-				}}>Branding</span
+				}}
 			>
+				Branding
+			</span>
 		</h1>
 	</main>
 
@@ -129,12 +146,13 @@
 		-webkit-text-fill-color: transparent;
 		-webkit-text-stroke: 1px;
 	}
-	span {
-		@apply transition-all duration-300;
+	.customSpan {
+		@apply inline-block;
 	}
-	span:hover {
+	.customSpan:hover {
 		@apply cursor-pointer;
 		-webkit-text-fill-color: black;
+		-webkit-text-stroke: 0;
 	}
 	.styleCursor {
 		@apply h-8 w-8 rounded-full fixed opacity-0 translate-x-[-50%] translate-y-[-50%] pointer-events-none;
